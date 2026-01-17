@@ -1,102 +1,205 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.net.*" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>KK FUNDA Home Page</title>
-<link href="images/kkfunda.jpg" rel="icon">
-<!-- Bootstrap CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-    body {
-        background: #f9f9f9;
-        font-family: Arial, sans-serif;
-    }
-    header {
-        background: linear-gradient(90deg, #007bff, #00c6ff);
-        color: white;
-        padding: 20px;
-        text-align: center;
-    }
-    h1, h3 {
-        margin: 10px 0;
-    }
-    .info-card {
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 700px;
-    }
-    footer {
-        margin-top: 30px;
-        background: #222;
-        color: white;
-        padding: 15px;
-        text-align: center;
-    }
-    footer a {
-        color: #00c6ff;
-        text-decoration: none;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Bites Restaurant</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background: #8b0000;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092") center/cover no-repeat;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        section {
+            padding: 60px 40px;
+        }
+
+        .about {
+            background: white;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin-bottom: 20px;
+            color: #8b0000;
+        }
+
+        .menu {
+            background: #f2f2f2;
+        }
+
+        .menu h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #8b0000;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .menu-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .menu-card p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .menu-card span {
+            font-weight: bold;
+            color: #8b0000;
+        }
+
+        .contact {
+            background: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+            color: #8b0000;
+        }
+
+        footer {
+            background: #8b0000;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1> Welcome to KK DEVOPS AWS Portal </h1>
-    <h3>Training | Development | Consulting</h3>
-</header>
+    <header>
+        <h1>Tasty Bites</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<div class="container">
-
-    <!-- Server Info -->
-    <div class="info-card">
-        <h3>🌐 Server Side Information</h3>
-        <hr>
-        <%
-            InetAddress inetAddress = InetAddress.getLocalHost();
-            String ip = inetAddress.getHostAddress();
-            out.println("<p><b>Server Host Name:</b> " + inetAddress.getHostName() + "</p>");
-            out.println("<p><b>Server IP Address:</b> " + ip + "</p>");
-        %>
+    <div class="hero" id="home">
+        <div>
+            <h2>Delicious Food, Cozy Place</h2>
+            <p>Fresh ingredients · Great taste · Best service</p>
+        </div>
     </div>
 
-    <!-- Client Info -->
-    <div class="info-card">
-        <h3>💻 Client Side Information</h3>
-        <hr>
-        <p><b>Client IP Address:</b> <%= request.getRemoteAddr() %></p>
-        <p><b>Client Host Name:</b> <%= request.getRemoteHost() %></p>
-    </div>
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>
+            Welcome to Tasty Bites! We serve delicious meals made with fresh ingredients.
+            Our goal is to give you a memorable dining experience.
+        </p>
+    </section>
 
-    <!-- Contact Info -->
-    <div class="info-card text-center">
-        <img src="images/kkfunda.jpg" alt="KK FUNDA Logo" width="120" class="mb-3 rounded-circle shadow">
-        <h4>KK FUNDA</h4>
-        <p><b>Address:</b> Martha Halli, Bangalore</p>
-        <p><b>Phone:</b> +91-9676831734</p>
-        <p><b>Email:</b> <a href="mailto:kkeducationblr@gmail.com">kkeducationblr@gmail.com</a></p>
-        <a href="mailto:kkeducation@gmail.com" class="btn btn-primary mt-2">📧 Mail to KK FUNDA</a>
-    </div>
+    <section class="menu" id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-card">
+                <h3>Chicken Biryani</h3>
+                <p>Rich & aromatic basmati rice</p>
+                <span>₹250</span>
+            </div>
+            <div class="menu-card">
+                <h3>Paneer Butter Masala</h3>
+                <p>Soft paneer in creamy gravy</p>
+                <span>₹220</span>
+            </div>
+            <div class="menu-card">
+                <h3>Veg Fried Rice</h3>
+                <p>Healthy & tasty vegetables</p>
+                <span>₹180</span>
+            </div>
+            <div class="menu-card">
+                <h3>Gulab Jamun</h3>
+                <p>Sweet & soft dessert</p>
+                <span>₹90</span>
+            </div>
+        </div>
+    </section>
 
-    <!-- Service Links -->
-    <div class="info-card text-center">
-        <h4>⚙️ Our Services</h4>
-        <p><a href="services/employee/getEmployeeDetails" class="btn btn-success">Get Employee Details</a></p>
-    </div>
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>📍 Hyderabad, India</p>
+        <p>📞 +91 98765 43210</p>
+        <p>✉️ tastybites@email.com</p>
+    </section>
 
-</div>
-
-<footer>
-    <p>© 2024 KK FUNDA Training & Development Center</p>
-    <p><small>Powered by <a href="https://google.com/">KK FUNDA</a></small></p>
-</footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <footer>
+        <p>© 2026 Tasty Bites Restaurant. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
